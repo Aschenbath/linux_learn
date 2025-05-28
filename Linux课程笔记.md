@@ -27,10 +27,53 @@ linux系统输入密码是不会有密码符显示的 , 所以只管输入吧
 切换到root用户 su - root
 用exit退出或者logout
 
+
+
+
+
+
+
 ## 快捷键
 
-1. ctrl + l 清空
-1. ctrl + c 强制停止
+1. ctrl + l 清空屏幕 == clear	
+
+2. ctrl + c 强制停止 / 退出当前命令的输入
+
+3. ctrl + d 退出 
+
+4. history
+
+5. python
+
+6. !前缀    自动执行上一次执行的命令  ---------->找近期的
+
+7. ctrl r ----->加想要找到命令
+
+8. ctrl a 跳到当前行命令的开头
+
+   1. ctrl e 跳到命令行的结尾
+
+9. ctrl 键盘左键 向左跳一个单词
+
+10. ctrl 键盘右键 向右跳一个单词
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -143,7 +186,7 @@ FinalShell登陆终端后，默认的工作目录就是用户的HOME目录
 
 - `.`，表示当前，比如./a.txt，表示当前文件夹内的`a.txt`文件
 - `..`，表示上级目录，比如`../`表示上级目录，`../../`表示上级的上级目录
-- `~`，表示用户的HOME目录，比如`cd ~`，即可切回用户HOME目录
+- `~`，表示用户的==HOME目录==，比如`cd ~`，即可切回用户HOME目录
 
 
 
@@ -772,7 +815,17 @@ normal模式下的常用快捷键
 
 
 
+
+
+
+
+
+
+
+
 ## systemctl
+
+system control
 
 功能：控制系统服务的启动关闭等
 
@@ -784,6 +837,19 @@ normal模式下的常用快捷键
 - disable，关闭开机自启
 - enable，开启开机自启
 - restart，重启
+
+```vim
+systemctl status app
+
+```
+
+部分软件安装后自动集成到systemctl种 , 所以可以命令行安装
+
+
+
+
+
+
 
 
 
@@ -924,11 +990,29 @@ normal模式下的常用快捷键
 
 
 
+
+
+程序运行即进程 , 且每个进程有独有的进程ID
+
 ## ps命令
 
 功能：查看进程信息
 
 语法：`ps -ef`，查看全部进程信息，可以搭配grep做过滤：`ps -ef | grep xxx`
+
+
+
+![image-20250528103233704](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528103233704.png)
+
+
+
+
+
+PID进程号 
+
+
+
+
 
 
 
@@ -938,9 +1022,29 @@ normal模式下的常用快捷键
 
 
 
+```vim
+kill -9 进程id           (-9强制关进程)
+```
+
+![image-20250528104008171](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528104008171.png)
+
+第一列是进程号
+
+
+
+
+
+查看端口占用 nmap netstat
+
 ## nmap命令
 
 ![image-20221027221241123](https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027221241.png)
+
+```vim
+nmap ip
+```
+
+
 
 
 
@@ -949,6 +1053,14 @@ normal模式下的常用快捷键
 功能：查看端口占用
 
 用法：`netstat -anp | grep xxx`
+
+```vim
+netstat -anp | grep xxx
+```
+
+
+
+
 
 
 
@@ -962,9 +1074,48 @@ normal模式下的常用快捷键
 
 
 
+```vim
+ping -c num 域名  (查看是否连通)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## wget命令
 
 ![image-20221027221148964](https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027221149.png)
+
+
+
+```vim
+wget -b url (url下载链接)    
+-f持续跟踪
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## curl命令
 
@@ -974,11 +1125,45 @@ normal模式下的常用快捷键
 
 
 
+```
+curl -O url  (-大O) --------------->下载
+
+cip.cc获取我的主机的公网ip
+```
+
+![image-20250528100956193](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528100956193.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## top命令
 
 功能：查看主机运行状态
 
 语法：`top`，查看基础信息
+
+
+
+![image-20250528104342013](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528104342013.png)
+
+
+
+us : user 
+
+sy : system
+
+
+
+![image-20250528104930618](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528104930618.png)
 
 
 
@@ -991,6 +1176,16 @@ normal模式下的常用快捷键
 交互式模式中，可用快捷键：
 
 ![image-20221027221354137](https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027221354.png)
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1010,13 +1205,31 @@ normal模式下的常用快捷键
 
 ![image-20221027221514237](https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027221514.png)
 
+rkb读
+
+wkb写
+
+util--->磁盘利用率
+
+
+
 
 
 ## sar命令
 
-查看网络统计
+查看==网络统计==
 
 ![image-20221027221545822](https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027221545.png)
+
+```vim
+sar -n DEV num1 num2
+```
+
+
+
+
+
+
 
 
 
@@ -1026,6 +1239,16 @@ normal模式下的常用快捷键
 - 永久设置：
   - 针对用户，设置用户HOME目录内：`.bashrc`文件
   - 针对全局，设置`/etc/profile`
+
+![image-20250528121720452](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528121720452.png)
+
+
+
+
+
+
+
+
 
 
 
@@ -1037,9 +1260,21 @@ normal模式下的常用快捷键
 
 
 
+![image-20250528122427855](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528122427855.png)
+
+注意这里是  美元PATH:  而不是直接赋值
+
+
+
+
+
+
+
+
+
 ## $符号
 
-可以取出指定的环境变量的值
+可以取出==指定的环境变量==的值
 
 语法：`$变量名`
 
@@ -1055,9 +1290,23 @@ normal模式下的常用快捷键
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 ## 压缩解压
 
-### 压缩
+### 压缩 
+
+tar       gzip
 
 `tar -zcvf 压缩包 被压缩1...被压缩2...被压缩N`
 
@@ -1068,6 +1317,14 @@ normal模式下的常用快捷键
 `zip [-r] 参数1 参数2 参数N`
 
 ![image-20221027221906247](https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027221906.png)
+
+
+
+![image-20250528124336637](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528124336637.png)
+
+
+
+.gz才有体积压缩的功能
 
 
 
@@ -1094,11 +1351,19 @@ normal模式下的常用快捷键
 
 ## su命令
 
-切换用户
+切换用户 switch user
 
 语法：`su [-] [用户]`
 
 ![image-20221027222021619](https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027222021.png)
+
+ctrl + d切换到上一个
+
+exit退出root
+
+
+
+
 
 
 
@@ -1111,7 +1376,7 @@ normal模式下的常用快捷键
 比如：
 
 ```shell
-itheima ALL=(ALL)       NOPASSWD: ALL
+itheima ALL=(ALL)       NOPASSWD: ALL //注意这里是NOPASSWD
 ```
 
 在visudo内配置如上内容，可以让itheima用户，无需密码直接使用`sudo`
@@ -1120,9 +1385,9 @@ itheima ALL=(ALL)       NOPASSWD: ALL
 
 ## chmod命令
 
-修改文件、文件夹权限
+修改==文件、文件夹==权限
 
-
+仅限==root/当前用户==
 
 语法：`chmod [-R] 权限 参数`
 
@@ -1132,19 +1397,53 @@ itheima ALL=(ALL)       NOPASSWD: ALL
 
 - 参数，被修改的文件、文件夹
 
-- 选项-R，设置文件夹和其内部全部内容一样生效
+- 选项==-R==，设置文件夹和其内部全部内容一样生效---->==对全部文件生效==
+
+  u->user
+  g->group
+
+  o->other
+  ==rwx==
+
+
+
+chmod +x/+r/+w filename
+
+chmod u=r,g=w,o=x filename
+
+u=---,g=---,o=--- 
+
+
+
+chmod -R u=r,g=w,o=x filename--------------->文件都变成这个权限
+
+
+
+rwx--->111 100 000 ---------->三位二进制
+
+751 rwx  r-x  --x
+
+
+
+
 
 
 
 ## chown命令
 
-修改文件、文件夹所属用户、组
+修改文件、文件夹==所属==的 用户、组
 
+想把自己的文件丢给别人 , 先要争得别人的同意 
 
+所以能随便丢给别人的只有root用户
 
 语法：`chown [-R] [用户][:][用户组] 文件或文件夹`
 
 ![image-20221027222326192](https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027222326.png)
+
+
+
+
 
 
 
@@ -1154,9 +1453,25 @@ itheima ALL=(ALL)       NOPASSWD: ALL
 
 
 
+
+
+
+
+
+
+
+
 ## 用户管理
 
 ![image-20221027222407618](https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027222407.png)
+
+​	
+
+
+
+
+
+
 
 
 
@@ -1178,6 +1493,351 @@ itheima ALL=(ALL)       NOPASSWD: ALL
 
 语法：`env`
 
+​		
+
+
+
+## export命令
+
+
+
+
+
+
+
+```vim
+export name = sth
+echo $name
+sth
+```
+
+
+
+但是export只是暂时保存
+
+如果想要永久保存 
+
+那就用vim 将想要保存到变量 写进 ==.bashrc==文件 , 然后就保存
+
+==写完之后一定要刷新== .bashrc 
+
+```vim
+source .bashrc
+或者
+. .bashrc
+```
+
+
+
+
+
+
+
+
+
+
+
+## rz命令
+
+上传文件--->打开图形化文件界面--->慢
+
+
+
+直接拖拽快一点
+
+
+
+
+
+## sz命令
+
+下载文件 
+
+
+
+
+
+
+
+
+
+
+
+
+
+## tar命令
+
+打包
+
+`c`：创建压缩包（create）
+
+`x`：解压压缩包（extract）
+
+`t`：查看压缩包内容（list）
+
+`v`：显示过程（verbose）
+
+`f`：指定文件名（file） ---->必须在指令的结尾
+
+`z`：使用 gzip 压缩（.gz）
+
+`j`：使用 bzip2 压缩（.bz2）
+
+`J`：使用 xz 压缩（.xz）
+
+`-C` : 指定路径 单独使用
+
+```bash
+tar [选项] [压缩包名称] [要打包的文件或目录]4
+
+tar -cvf newone.tar filepath  打包
+tar -zxvf test.tar.gz -C towhich 以gz模式解压至当前目录
+tar -xvf newone.tar -C towhich 
+
+```
+
+######  小记口诀：
+
+> **"c 打包，x 解包，v 啰嗦，f 文件名，z 压缩"**
+>  搭配顺序记：`tar -czvf` 是压缩，`tar -xzvf` 是解压。
+
+
+
+```
+# 打包文件夹为 .tar（仅打包不压缩）
+tar -cvf archive.tar myfolder/
+
+# 解压 .tar 包
+tar -xvf archive.tar
+
+# 打包为 .tar.gz（gzip压缩）
+tar -czvf archive.tar.gz myfolder/
+
+# 解压 .tar.gz
+tar -xzvf archive.tar.gz
+
+
+
+
+# 打包为 .tar.bz2（bzip2压缩）
+tar -cjvf archive.tar.bz2 myfolder/
+
+# 解压 .tar.bz2
+tar -xjvf archive.tar.bz2
+
+
+
+# 打包为 .tar.xz（xz压缩）
+tar -cJvf archive.tar.xz myfolder/
+
+# 解压 .tar.xz
+tar -xJvf archive.tar.xz
+
+
+
+# 查看压缩包内容（不解压）
+tar -tvf archive.tar.gz
+
+# 解压到指定目录
+tar -xvf archive.tar.gz -C /path/to/target/
+
+
+
+# 打包多个文件与文件夹
+tar -czvf archive.tar.gz file1.txt file2.txt folder/
+
+# 打包时排除某些文件（如排除 .log 文件）
+tar --exclude="*.log" -czvf archive.tar.gz folder/
+
+```
+
+
+
+
+
+## zip命令
+
+```bash
+zip [-r] newone.zip 被压缩的参数1~n
+unzip 参数 [-d towhich]
+```
+
+
+
+
+
+
+
+
+
+
+
+## 认识权限信息
+
+权限细节10个槽位    文件 - or文件夹 d /  ==用户==权限  / ==用户组==权限 / 其他用户权限
+
+
+![image-20250527190818489](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250527190818489.png)
+
+
+
+rwx  读,查看  /  写,修改  /  执行
+
+
+
+
+
+
+
+
+
+## 安装APP
+
+使用命令行装app
+
+yum程序  自动化安装配置linux软件
+
+RPM包--->centOS的并发版linux系统的安装包
+
+
+
+
+
+语法 
+
+```vim
+yum [-y] [install] || remove || search
+-y默认允许
+```
+
+
+
+yum -y search appname
+
+
+
+ubuntu 的安装包 deb , apt
+
+```vim
+apt -y install wget
+```
+
+
+
+
+
+## 软连接
+
+将文件,文件夹连接到其他位置---->相当于==桌面快捷方式==
+
+
+
+ln   -s(表示软连接)  被链接的文件 目的地
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 日期和时区
+
+
+
+
+
+| 格式符 | 含义                        | 示例         |
+| ------ | --------------------------- | ------------ |
+| `%Y`   | **四位年份**                | `2025`       |
+| `%y`   | **两位年份**                | `25`         |
+| `%m`   | **两位数字月份（01-12）**   | `05`         |
+| `%B`   | **完整月份英文**            | `May`        |
+| `%b`   | **缩写月份英文**            | `May`        |
+| `%d`   | **两位日期**                | `27`         |
+| `%e`   | **不补零日期**              | ` 7` or `27` |
+| `%H`   | **24小时制的小时（00-23）** | `22`         |
+| `%I`   | **12小时制的小时（01-12）** | `10`         |
+| `%p`   | **AM/PM**                   | `PM`         |
+| `%M`   | **分钟（00-59）**           | `04`         |
+| `%S`   | **秒（00-59）**             | `15`         |
+| `%A`   | **星期几（英文全称）**      | `Tuesday`    |
+| `%a`   | **星期几（英文缩写）**      | `Tue`        |
+| `%Z`   | **时区缩写**                | `CST`        |
+
+
+
+```bash
+date -d "now + 1 day"
+date -d "now - 3 hours"
+date -d "2 days ago"
+date -d "next Monday"
+date -d "tomorrow 13:00"
+```
+
+
+
+
+
+## IP地址 主机名
+
+127.0.0.1----------->此IP是本机
+
+0.0.0.0--------->可以代表本机
+
+hostnamectl set-hostname newname
+
+dns域名解析
+
+过程 : 1. 先查看本机的记录 私人地址本---->所以我们可以通过添加本地的映射
+ ip + 主机名  直接找本机
+
+2. 再联网去DNS服务器查询
+
+   linux看  /etc/hosts
+
+
+
+
+
+## 固定IP
+
+
+
+1. 频繁变化会要求我们频繁修改适配很麻烦
+2. 进行了ip和主机名的映射 , 如果ip频繁修改 , 要重新更新映射关系
+
+
+
+
+
+
+
+## 端口
+
+物理端口 : 接口
+
+虚拟端口 : 不可见的 , 电脑对应的app程序号65535
+1~1023知名程序
+
+1024~49151注册端口 , 通常允许随意使用
+
+49152~65535动态端口 , 通常不会固定绑定程序 , 程序对外进行网络连接时 , 用于临时使用
+
+
+
+
+
+
+
+## 
 
 
 
@@ -1199,10 +1859,69 @@ itheima ALL=(ALL)       NOPASSWD: ALL
 
 
 
+| 名称     | 含义                                           | 举例                     |
+| -------- | ---------------------------------------------- | ------------------------ |
+| `mysql`  | 是客户端程序，用来连接数据库                   | `mysql -u root -p`       |
+| `mysqld` | 是守护进程（daemon），真正跑在后台的数据库服务 | `systemctl start mysqld` |
 
 
 
 
 
 
+
+## alias 别名命令
+
+自定义命令别名
+
+首先用vim进入.bashrc文件
+
+```vim
+vim .bashrc
+```
+
+
+
+然后用alias命令 添加别名
+
+```vim
+alias cls = 'clear'
+```
+
+
+
+然后重新加载.bashrc
+
+```vim
+. .bashrc
+// source .bashrc
+```
+
+
+
+然后就能用了
+
+
+
+
+
+
+
+## shuf
+
+生成随机数
+
+```vim
+shuf [-i] l-r -n number         --> -i 表示范围  -n表示生成个数
+```
+
+
+
+当我们想要让命令输出的结果赋值给变量的时候有2种
+
+```vim
+number = ` shuf -i 1-10 -n 1 `        --->反引号
+或者
+number = $ (shuf -i 1-10 -n 1)        -->dollar()
+```
 
