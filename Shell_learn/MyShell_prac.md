@@ -83,7 +83,7 @@ bash -c "~/autopush.sh"  --->bash -c "..."：调用 Git Bash 来执行你写的 
 
 ### 检查
 
-> where pushgogo ---->linuxli
+> where pushgogo ---->linux里是
 >
 > 如果返回路径则表示配置成功
 
@@ -101,3 +101,5 @@ bash -c "~/autopush.sh"  --->bash -c "..."：调用 Git Bash 来执行你写的 
 ```bash
 pushgogo
 ```
+
+xixixixi
