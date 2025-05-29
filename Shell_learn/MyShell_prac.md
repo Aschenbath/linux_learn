@@ -8,11 +8,11 @@
 
 ## pracone :cmd直接pushgogo
 
-###  方法一: 
+###  方法一 : 
 
 > 先写好shell脚本 , 然后通过bat批处理文件启动shell脚本
 
-### 1.`.bat` 文件？
+#### 1.`.bat` 文件？
 
 `.bat`（batch）文件是一种**Windows 批处理脚本文件**，作用就像是：
 
@@ -20,7 +20,7 @@
 
 
 
-### 2. 功能
+#### 2. 功能
 
 你可以用 `.bat` 文件来：
 
@@ -34,7 +34,7 @@
 
 
 
-### 3.编写
+#### 3.编写
 
 ```bash
 @echo off
@@ -48,7 +48,7 @@ REM 注释：不执行这行，只是说明用的
 bash -c "~/autopush.sh"  --->bash -c "..."：调用 Git Bash 来执行你写的 Shell 脚本。
 ```
 
-#### 保存方法
+##### 保存方法
 
 1. 打开 **记事本**
 2. 写完内容
@@ -61,7 +61,7 @@ bash -c "~/autopush.sh"  --->bash -c "..."：调用 Git Bash 来执行你写的 
 
 
 
-### 设为环境变量
+#### 4.设为环境变量
 
 > 把 `.bat` 文件放在一个固定的目录，比如 `C:\Users\aschenbath\jioben`
 >
@@ -85,7 +85,7 @@ bash -c "~/autopush.sh"  --->bash -c "..."：调用 Git Bash 来执行你写的 
 
 
 
-### 检查
+###### 检查
 
 > where pushgogo ---->linux里是
 >
@@ -95,7 +95,7 @@ bash -c "~/autopush.sh"  --->bash -c "..."：调用 Git Bash 来执行你写的 
 
 
 
-### 总结流程
+#### 5.总结流程
 
 1. **脚本路径**：`C:\Users\aschenbath\autopush.sh`
 2. **bat 文件**：`C:\Users\aschenbath\pushgogo.bat`
@@ -178,5 +178,27 @@ pause
 
 ```bash
 echo off 是关闭命令回显的意思，执行命令时不会再显示命令本身。
+@echo off @命令 表示这条命令也不显示
+```
+
+
+
+
+
+### 方法二 : 
+
+> 直接编写bat文件 然后加入全局变量执行
+>
+> 不推荐 , 代码如下
+
+```bash
+@echo off
+echo start...
+
+wsl bash -c "eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_ed25519 && cd /mnt/f/linux_learn && git add . && git commit -m 'auto commit' || echo '无需提交' && git push"
+
+echo.
+echo "over, i love u three thousand times"
+pause
 ```
 
