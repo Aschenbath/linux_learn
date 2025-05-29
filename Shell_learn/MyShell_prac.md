@@ -4,9 +4,13 @@
 
 
 
-## 1.利用cmd直接pushgogo
 
-##  
+
+## pracone :cmd直接pushgogo
+
+###  方法一: 
+
+> 先写好shell脚本 , 然后通过bat批处理文件启动shell脚本
 
 ### 1.`.bat` 文件？
 
@@ -114,5 +118,65 @@ wsl bash -c "eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_ed25519 && cd /mnt/f/lin
 echo.
 echo "over, i love u three thousand times"
 pause
+```
+
+
+
+
+
+```bash
+withbat.sh （核心 Shell 脚本）
+#!/bin/bash
+# 启动 SSH 代理，开启身份验证守护进程，像一把守护你的密钥的利剑
+eval "$(ssh-agent -s)"
+
+# 向代理添加你的私钥，让后续的 git 操作拥有无声的通行证
+ssh-add ~/.ssh/id_ed25519
+
+# 切换到你代码的根目录，失败则立刻退出，绝不容忍迷失方向
+cd /mnt/f/linux_learn || exit 1
+
+# 把所有改动放入暂存区，准备好迎接历史的书写
+git add .
+
+# 自动提交，携带着当下时间的印记，像时光流逝的签名
+git commit -m "auto commit $(date '+%Y-%m-%d %H:%M:%S')"
+
+# 将你的代码推送到远方的仓库，连接你与世界的桥梁
+git push
+
+
+
+
+批处理文件 （Windows 端启动脚本）
+@echo off
+:: 关闭命令回显 , 即不显示echo等命令
+
+echo.
+echo start...
+echo.
+:: 打印空行
+
+wsl /mnt/c/Users/aschenbath/withbat.sh
+:: 在 WSL 环境中执行 Linux 下的提交脚本，跨越系统的边界如行云流水
+
+echo.
+echo.
+echo "over, i love u three thousand times"
+echo.
+:: 结束语，诗意地告诉你任务已完成，感情满满
+
+pause
+:: 暂停，等待你的掌声或任意按键，告别静默
+```
+
+
+
+
+
+### 小keys
+
+```bash
+echo off 是关闭命令回显的意思，执行命令时不会再显示命令本身。
 ```
 
