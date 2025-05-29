@@ -6,7 +6,7 @@
 
 
 
-## pracone :cmd直接pushgogo
+## pracone : pushgogo
 
 ###  方法一 : 
 
@@ -202,3 +202,37 @@ echo "over, i love u three thousand times"
 pause
 ```
 
+
+
+
+
+## practwo : autopush
+
+### 1.写好autopush.sh
+
+```bash
+#!/bin/bash
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+git add .
+git commit -m "自动提交$(date '+%Y-%m-%d %H:%M:%S')"
+git push
+```
+
+
+
+### 2.加入任务计划程序
+
+![image-20250529154551754](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250529154551754.png)
+
+
+
+
+
+![image-20250529154613461](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250529154613461.png)
+
+
+
+![image-20250529154655940](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250529154655940.png)
