@@ -207,6 +207,30 @@ v进入选中 , y表示赋值yank  , p 表示粘贴paste
 
 
 
+## vimtutor
+
+![image-20250528232724480](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528232724480.png)
+
+
+
+![image-20250528234233342](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528234233342.png)
+
+
+
+![image-20250528235301457](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250528235301457.png)
+
+![image-20250529092752364](C:\Users\aschenbath\AppData\Roaming\Typora\typora-user-images\image-20250529092752364.png)
+
+| 命令            | 作用                     |
+| --------------- | ------------------------ |
+| `:s/旧/新/`     | 当前行替换第一个         |
+| `:s/旧/新/g`    | 当前行替换全部           |
+| `:#,#s/旧/新/g` | 替换指定行范围中全部     |
+| `:%s/旧/新/g`   | 替换整个文件中全部       |
+| `:%s/旧/新/gc`  | 替换整个文件，并逐个确认 |
+
+
+
 
 
 
