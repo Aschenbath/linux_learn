@@ -102,9 +102,17 @@ bash -c "~/autopush.sh"  --->bash -c "..."：调用 Git Bash 来执行你写的 
 pushgogo
 ```
 
-xixixixi66666
 
-666666666666666
 
-无语
+```bash
+pushgogo.bat
+@echo off
+echo start...
+
+wsl bash -c "eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_ed25519 && cd /mnt/f/linux_learn && git add . && git commit -m 'auto commit' || echo '无需提交' && git push"
+
+echo.
+echo "over, i love u three thousand times"
+pause
+```
 
