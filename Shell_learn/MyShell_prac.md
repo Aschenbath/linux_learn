@@ -102,4 +102,5 @@ bash -c "~/autopush.sh"  --->bash -c "..."：调用 Git Bash 来执行你写的 
 pushgogo
 ```
 
-xixixixi
+xixixixi66666
+
