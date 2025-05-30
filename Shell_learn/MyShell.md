@@ -109,6 +109,8 @@ fi
 ### while
 
 ```bash
+
+
 while [ 条件 ]; do
     命令1
     命令2
@@ -122,6 +124,20 @@ i=1
 while [ $i -le 5 ]; do
     echo "当前数字是 $i"
     ((i++))  # 注意是双括号：自增写法
+done
+
+
+无限循环1
+while :
+do
+	
+done
+
+
+无限循环2
+while true
+do
+
 done
 ```
 
@@ -150,6 +166,8 @@ while true; do
         echo "太小了 smaller ⬇️"
     fi
 done
+
+
 ```
 
 
@@ -220,6 +238,68 @@ in：进入匹配分支
 *：通配符，类似于 C++ 的 default
 
 esac：case 的反过来拼写，是结束标志
+```
+
+
+
+
+
+
+
+
+
+### until
+
+> 只要“条件为假”，`do` 里的内容就一直执行；**条件为真就停止循环**。
+
+```bash
+until 条件
+do
+
+
+done
+
+
+i=0
+until i>5 ----------->直到大于5时停止!
+do
+
+
+done
+```
+
+
+
+### select
+
+> 交互式 , 常与case in搭配
+
+``` bash
+select var in menu1 menu2 ...
+do
+	case $var in menu1)
+	echo ...
+	break 		---->注意一定要break不然会继续
+	;; 
+
+
+done
+
+
+eg.
+select name in "KOBE" "Black" "黑"
+do
+	echo $name
+done
+
+echo $name //可以获取得到
+
+
+会像列表一样展示
+1) KOBE
+2) Black
+3) 黑
+
 ```
 
 
@@ -1347,5 +1427,69 @@ test 1==1;echo $?  --->0表示成立 1表示不成立
 
 
 
-ok
+
+
+
+
+## 函数
+
+```
+declare -F  --->可以查看所有函数
+```
+
+
+
+### 系统函数
+
+#### 1.basename-->文件名
+
+```
+basename [string/pathname] [suffix]
+```
+
+> basename是用来获取文件名的函数 , 根据给出的文件路径截取文件名
+>
+> [string/pathname] 是提供文件路径
+>
+> suffix : 是截取的时候去掉指定的后缀名--->只获取文件名
+
+#### 2.dirname-->目录名
+
+> 从指定的文件绝对路径 , 去除文件名 , 返回剩下的前缀目录路径
+
+```bash
+dirname 绝对路径
+```
+
+
+
+
+
+
+
+
+
+### 自定义函数
+
+```bash
+[ function ] funcname ()  ---->[]表示可有可无
+{
+	command
+	[return 返回值]
+}
+
+funcname var1 var2 var3
+
+
+
+demo ()
+{
+echo "nihao"
+}
+demo
+
+--->nihao
+
+
+```
 
